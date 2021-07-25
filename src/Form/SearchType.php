@@ -16,6 +16,7 @@ class SearchType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) 
     {
         $builder
+        //crée les champs du formulaire de recherche 
         ->add('string', TextType::class, [
             'label' => false,
             'required' => false,
@@ -33,6 +34,7 @@ class SearchType extends AbstractType {
             'expanded' => true
 
         ])
+        //ce champ permet de soumettre le formulaire et d'envoyer les informations vers la BDD
         ->add('submit', SubmitType::class, [
             'label' => 'Filtrer',
             'attr' => [
@@ -44,6 +46,7 @@ class SearchType extends AbstractType {
 
     public function configureOptions(OptionsResolver $resolver)
     {
+        //options souhaitées dans le formulaire
         $resolver->setDefaults([
             'data_class' => Search::class,
             'method' => 'GET',

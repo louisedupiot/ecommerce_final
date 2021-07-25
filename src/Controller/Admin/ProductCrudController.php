@@ -1,5 +1,7 @@
 <?php
 
+//gestion des produits côté administrateur dans EasyAdmin
+
 namespace App\Controller\Admin;
 
 use App\Entity\Product;
@@ -18,15 +20,16 @@ class ProductCrudController extends AbstractCrudController
         return Product::class;
     }
 
-    
+    //fonction qui permet de rajouter un produit dans la BDD
     public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('name'),
-            // le slug permet de faire des URLS plus simples et clairs
+                // le slug permet de faire des URLS plus simples et clairs
             SlugField::new('slug')->setTargetFieldName('name'),
             ImageField::new('illustration')->setBasePath('uploads/files')
                 ->setUploadDir('public/uploads/files')
+                //les images sont renommées avec des lettres aléatoires
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
             TextField::new('subtitle'),

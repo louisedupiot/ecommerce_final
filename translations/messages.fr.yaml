@@ -1,0 +1,35 @@
+# translations/messages.fr.yaml
+
+Nom: Nom
+Name: Nom
+Prix: Prix
+Price: Prix
+Qte: Qte
+Qty: Qte
+Categorie: Catégorie
+Category: Catégorie
+Produits: Produits
+Modifier: Modifier
+Supprimer: Supprimer
+Sauvegarder: Sauvegarder
+
+produit:
+  empty: Il n'y a aucun produit
+  nb: Il y a %nb% produits
+  added: Produit ajouté
+  add: Ajouter un produit
+  edit: Modifier le produit
+  delete: Supprimer le produit
+  unknown: Produit introuvable
+  updated: Produit mis à jour
+  deleted: Produit supprimé
+
+categorie:
+  empty: Il n'y a aucune catégorie
+  add: Ajouter une catégorie
+  edit: Modifier la catégorie
+  delete: Supprimer la catégorie
+  added: Catégorie ajoutée
+  unknown: Catégorie introuvable
+  updated: Catégorie mise à jour
+  deleted: Catégorie supprimée

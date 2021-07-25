@@ -1,0 +1,35 @@
+# translations/messages.en.yaml
+
+Nom: Name
+Name: Name
+Prix: Price
+Price: Price
+Qte: Qty
+Qty: Qty
+Categorie: Category
+Category: Category
+Produits: Products
+Modifier: Edit
+Supprimer: Delete
+Sauvegarder: Save
+
+produit:
+  empty: There is no product
+  nb: There is %nb% products
+  added: Product added
+  add: Add product
+  edit: Edit product
+  delete: Delete product
+  unknown: Product unknown
+  updated: Product updated
+  deleted: Product deleted
+
+categorie:
+  empty: There is no category
+  add: Add a category
+  edit: Edit category
+  delete: Delete category
+  added: Category added
+  unknown: Category unknown
+  udpated: Category updated
+  deleted: Category deleted

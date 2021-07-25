@@ -1,10 +1,13 @@
 <?php
 
+//gestion de toutes les entités côté administrateur dans EasyAdmin
+
 namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Category;
 use App\Entity\Product;
+use App\Entity\Utilisateur;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -31,7 +34,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        /* yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class); */
+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', Utilisateur::class); 
         yield MenuItem::linktoCrud('Categories', 'fa fa-folder', Category::class);
         yield MenuItem::linktoCrud('Products', 'fa fa-tags', Product::class);
     }

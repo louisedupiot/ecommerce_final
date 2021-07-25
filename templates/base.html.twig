@@ -8,7 +8,7 @@
     <meta name="generator" content="Jekyll v4.1.1">
     <title> {% block title %} Karasuno {% endblock %}</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap CSS -->
     <!-- la fonction asset va chercher dans le dossier public -->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/karasuno.css')}}" rel="stylesheet">
@@ -29,7 +29,7 @@
             }
         }
     </style>
-    <!-- Custom styles for this template -->
+
     <link href="{{asset('assets/css/carousel.css')}}" rel="stylesheet">
 </head>
 <body>
@@ -42,33 +42,43 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/"> Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ path('products') }}"> Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('products') }}"> Produits </a>
+                {# <a class="nav-link" href="{{ path('products') }}"> Produits </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Compte </a>
+                <li class="nav-item"> #}
+                {#  <a class="nav-link" href="#"> Compte </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"> #}
                     <a class="nav-link" href="{{ path('admin') }}"> Administration </a>
                 </li>
             </ul>
-                        
-            <form class="form-inline mt-2 mt-md-0">
+            
+            <div class="navbar-item-custom">
+            {% if app.user %}
+               <a href="{{path('account')}}">Mon compte</a>  |  <a href="{{path('app_logout')}}">Déconnexion</a>
+            {% else %}
+                <a href="{{path('app_login')}}">Connexion</a> | <a href="{{path('register')}}">Inscription</a>
+            {% endif %}
+            </div>
+            {# <form class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Votre recherche..." aria-label="Search">
                 <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"> Rechercher </button>
-            </form>
+            </form> #}
         </div>
     </nav>
 </header>
 
 <main role="main">
 
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+
 
     <div class="container marketing">
 
@@ -78,12 +88,13 @@
     </div><!-- /.container -->
 
     <!-- FOOTER -->
-    
     <footer class="footer-custom">
         <p class="float-right"><a href="#">Back to top</a></p>
         <p>&copy; 2017-2020 Karasuno &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
-</main>
+   
+</main> 
+    
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.js')}}"></script>
 </body>
